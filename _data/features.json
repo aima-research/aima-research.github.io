@@ -1,16 +1,16 @@
 [
   {
-    "title": "Free Consultation",
-    "description": "New clients receive an obligation free consultation.",
+    "title": "Collaboration",
+    "description": "We welcome research collaboration, discussion, and contributions related to Tashlhiyt language technologies.",
     "image": {
-      "url": "images/features/noun_branding_1885335.svg",
+      "url": "images/features/icons8-team-100.png",
       "width": 80,
       "height": 80
     }
   },
   {
-    "title": "Certified Accountants",
-    "description": "All members of our team are certified accountants.",
+    "title": "Research Focus",
+    "description": "Our work explores artificial intelligence methods for Amazigh languages, with an initial focus on speech and language modeling.",
     "image": {
       "url": "images/features/noun_The Process_1885341.svg",
       "width": 80,
@@ -18,8 +18,8 @@
     }
   },
   {
-    "title": "Tax Compliance",
-    "description": "We stay up to date on the latest changes to the tax code.",
+    "title": "Resources",
+    "description": "We curate models, datasets, publications, and tools relevant to Amazigh language research.",
     "image": {
       "url": "images/features/noun_3d modeling_1885342.svg",
       "width": 80,
