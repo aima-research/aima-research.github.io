@@ -8,7 +8,7 @@ logo:
   mobile_width: "32px"
   desktop: "images/logo/logo.svg"
   desktop_height: "32px"
-  desktop_width: "120px"
+  desktop_width: "150px"
 
 home: 
   limit_services: 6
@@ -21,6 +21,11 @@ collections:
     output: true
 
 defaults:
+  - scope:
+      path: ""
+      type: "blog"
+    values:
+      layout: "post"
   - scope:
       path: ""
       type: "services"
