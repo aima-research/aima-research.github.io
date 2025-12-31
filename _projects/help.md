@@ -64,7 +64,7 @@ show_in_listing: false
     border: 1px solid red;
     padding: 12px;
     margin: 12px 0;
-    border-radius: 5px; /* remove this line if you want sharp corners */
+    border-radius: 0px; /* remove this line if you want sharp corners */
   }
   .question-block .en {
     font-weight: bold;
