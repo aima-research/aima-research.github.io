@@ -18,10 +18,17 @@ bodyClass: "page-projects"
   </div>
 </div>
 
+<!-- Debug: List all project URLs -->
+<!-- 
+{% for article in site.projects %}
+  {{ article.title }}: {{ article.url }}
+{% endfor %}
+-->
+
 <div class="container pt-6 pb-6">
   <div class="row">
     {% for article in site.projects %}
-      {% unless article.published == false %}
+      {% unless article.show_in_listing == false %}
         <div class="col-12 col-md-6 mb-3">
           <div class="service service-summary">
             <div class="service-content">
