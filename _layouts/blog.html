@@ -20,14 +20,14 @@ bodyClass: "page-blog"
 
 <div class="container pt-6 pb-6">
   <div class="row">
-    {% for post in site.posts %}
+    {% for article in site.blog %}
     <div class="col-12 col-md-6 mb-3">
-      <div class="post post-summary">
-        <div class="post-content">
-          <h2 class="post-title">
-            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <div class="service service-summary">
+        <div class="service-content">
+          <h2 class="service-title">
+            <a href="{{ article.url | relative_url }}">{{ article.title }}</a>
           </h2>
-          <p>{{ post.excerpt | markdownify | strip_html | truncate: 100 }}</p>
+          <p>{{ article.excerpt | markdownify | strip_html | truncate: 100 }}</p>
         </div>
       </div>
     </div>
