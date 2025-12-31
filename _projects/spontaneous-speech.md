@@ -18,6 +18,14 @@ The initiative relies on community participation and crowdsourcing to gather div
 <p>
 To contribute, users can visit the Common Voice website, select the <em>Spontaneous Speech</em> task, and choose the Tashlhiyt language, listed as <em>Tashlhiyt (EN)</em> or <em>Tachelhit / Chleuh (FR)</em>.
 </p>
+
+<p>
+For contributors who may find the standard Latin-based writing used in some questions challenging,
+we provide a dedicated <a href="/projects/help/">help guide</a>. This guide explains the writing system,
+offers a phoneme reference table, and includes translations to make the questions easier to understand
+before recording spontaneous responses.
+</p>
+
 </div>
 
 
