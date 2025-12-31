@@ -117,9 +117,76 @@ body {
   }
 }
 
+// Remove underlines from all links
+a {
+  text-decoration: none !important;
+  
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
 .intro-image {
   margin-left: -50px !important;
   padding-right: 150px;
   transform: scale(0.8);
   transform-origin: center;
+}
+
+// Reduce space between navbar and container only for resources page
+.page-resources .intro {
+  padding-top: 60px; // Reduce top padding
+}
+
+// Reduce space between intro and projects sections on projects page
+.page-projects .container.pt-6,
+.page-blog .container.pt-6 {
+  padding-top: 0rem !important; // Override pt-6 (6rem) with 0rem
+  margin-top: -4rem !important; // Pull up with negative margin
+}
+
+// Make H2 in body content look like H1 but smaller
+.body-content h2 {
+  color: $black;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.2;
+  font-family: $font-family-heading;
+  margin-bottom: 10px; // Reduced space after H2 title
+  margin-top: 30px; // Add space before H2 (after previous content)
+  @include media-breakpoint-up(md) {
+    font-size: 24px;
+  }
+  @include media-breakpoint-up(lg) {
+    font-size: 26px;
+  }
+}
+
+// Make body content text grey except H2 headings
+.body-content {
+  color: $steel;
+  margin-top: 30px;
+  
+  h2 {
+    color: $black; // Override to keep H2 black
+    
+    &:first-child {
+      margin-top: 0; // No top margin for first H2
+    }
+  }
+  
+  ul {
+    padding-left: 30px; // Small indent for bullet points
+    margin-bottom: 25px; // Space after bullet points before next section
+  }
+  
+  a {
+    color: inherit; // Remove link color, use parent color (grey)
+    text-decoration: none; // Remove underline
+    
+    &:hover {
+      color: inherit; // Keep grey on hover too
+      text-decoration: underline; // Add underline on hover for indication
+    }
+  }
 }
