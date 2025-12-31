@@ -19,13 +19,27 @@ collections:
     sort_by: weight
   team:
     output: true
+  blog:
+    output: true
+    sort_by: date
+  projects:
+    output: true
+    sort_by: weight
+  projects:
+    output: true
+    sort_by: weight
 
 defaults:
   - scope:
       path: ""
       type: "blog"
     values:
-      layout: "post"
+      layout: "page"
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "page"
   - scope:
       path: ""
       type: "services"
