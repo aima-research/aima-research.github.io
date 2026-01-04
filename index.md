@@ -1,8 +1,8 @@
 ---
-title: Jekyll Serif Theme
+title: AIMA
 layout: home
 permalink: /
-description: Jekyll Serif contains content types for a typical business website. The theme is fully responsive, blazing fast and artfully illustrated.
+description: Advancing AI for Amazigh languages
 intro_image: "images/illustrations/chatbot.png"
 intro_image_absolute: true
 intro_image_hide_on_mobile: true
