@@ -72,11 +72,127 @@ show_in_listing: false
   .question-block .sh {
     margin: 0;
   }
+  .question-with-audio {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .question-text {
+    flex: 1;
+  }
+
+  .question-audio audio {
+    /* background-color: blue;  */
+    padding-left: 100px;
+    width: 160px;
+  }
 </style>
 
-<div class="question-block">
-  <p class="en">What traditional dishes do you prepare during major celebrations?</p>
-  <p class="sh">Man tirmt ad tsujadt ɣ laɛyad mqqurnin ?</p>
+<div id="questions"></div>
+
+<script>
+// CSV parser that handles quoted fields
+function parseCSV(text) {
+  const rows = [];
+  let currentRow = [];
+  let currentField = '';
+  let insideQuotes = false;
+
+  for (let i = 0; i < text.length; i++) {
+    const char = text[i];
+    const nextChar = text[i + 1];
+
+    if (char === '"') {
+      if (insideQuotes && nextChar === '"') {
+        currentField += '"';
+        i++;
+      } else {
+        insideQuotes = !insideQuotes;
+      }
+    } else if (char === ',' && !insideQuotes) {
+      currentRow.push(currentField.trim());
+      currentField = '';
+    } else if ((char === '\n' || char === '\r') && !insideQuotes) {
+      if (currentField || currentRow.length > 0) {
+        currentRow.push(currentField.trim());
+        if (currentRow.some(f => f)) {
+          rows.push(currentRow);
+        }
+        currentRow = [];
+        currentField = '';
+      }
+      if (char === '\r' && nextChar === '\n') {
+        i++;
+      }
+    } else {
+      currentField += char;
+    }
+  }
+
+  if (currentField || currentRow.length > 0) {
+    currentRow.push(currentField.trim());
+    if (currentRow.some(f => f)) {
+      rows.push(currentRow);
+    }
+  }
+
+  return rows;
+}
+
+fetch('/assets/csv/questions.csv')
+  .then(response => response.text())
+  .then(text => {
+    const rows = parseCSV(text);
+    const headers = rows.shift(); // Remove header row
+
+    // Transform each row into an object
+    const data = rows.map(row => {
+      const [id, en, sh, audio] = row;
+      return { id, en, sh, audio };
+    });
+
+    // Use all questions
+    const selected = data;
+
+    const container = document.getElementById('questions');
+
+    selected.forEach(q => {
+      const div = document.createElement('div');
+      div.className = 'question-block question-with-audio';
+
+      div.innerHTML = `
+        <div class="question-text">
+          <p class="en">${q.en}</p>
+          <p class="sh">${q.sh}</p>
+        </div>
+        <div class="question-audio">
+          <audio controls preload="none">
+            <source src="/assets/audios/${q.audio}" type="audio/mpeg">
+          </audio>
+        </div>
+      `;
+
+      container.appendChild(div);
+    });
+  });
+</script>
+
+
+
+<!-- 
+<div class="question-block question-with-audio">
+  <div class="question-text">
+    <p class="en">What traditional dishes do you prepare during major celebrations?</p>
+    <p class="sh">Man tirmt ad tsujadt ɣ laɛyad mqqurnin ?</p>
+  </div>
+
+  <div class="question-audio">
+    <audio controls preload="none">
+      <source src="/assets/audio/question-01.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
 </div>
 
 <div class="question-block">
@@ -373,4 +489,4 @@ show_in_listing: false
   <p class="en">How do you choose your friends?</p>
   <p class="sh">Manik ad tskart bac ad tstit imddukal nnk ?</p>
 </div>
-
+ -->
